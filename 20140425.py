@@ -6,4 +6,4 @@ unsort[0] = unsort[1]
 unsort[1] = temp
 
 for aa in unsort:
-	print("%d, " % aa)
+	print("%d, " % a)
