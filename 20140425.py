@@ -14,7 +14,6 @@ with open(inputFileName) as file:
 	number = file.read().splitlines()
 for i in range(len(number)):
 	number[i] = int(number[i])
-
 	
 sorted = xSort(number)
 
