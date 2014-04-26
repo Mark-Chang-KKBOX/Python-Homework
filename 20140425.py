@@ -1,13 +1,16 @@
-import sys
 
-number = []
-for i in range(1, len(sys.argv)):
-	number.append(int(sys.argv[i]))
-
-for i in range(0, len(number)):
-	for j in range(i, len(number)):
-		if number[i] < number[j]:
-			number[i], number[j] = number[j], number[i]
+def xSort(unsorted):
+	sorted = [0] * (max(unsorted) + 1)
+	for i in range(0, len(unsorted)):
+		sorted[unsorted[i]] = unsorted[i]
+	return sorted
 	
-for i in range(0, 3):
-	print ("%d" % number[i])
+
+number = [2134, 3412, 6421, 8723, 9239, 1234, 2345]
+sorted = xSort(number)
+
+count = 0
+for i in range(max(sorted), -1, -1):
+	if sorted[i] > 0 and count < 3:
+		count = count + 1
+		print(sorted[i])
