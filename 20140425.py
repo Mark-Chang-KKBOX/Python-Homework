@@ -1,7 +1,8 @@
 import os
 import re
+import sys
 
-inputFileName = "inputNumber.txt"
+inputFileName = sys.argv[1]
 outputFileName = "outputNumber.txt"
 
 def xSort(unsorted):
