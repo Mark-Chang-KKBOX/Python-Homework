@@ -7,7 +7,6 @@ def readNumberFromFile(fileName):
 		number[i] = int(number[i])
 	return number
 
-
 def writeNumberToFile(fileName, number):
 	try:
 		os.remove(fileName)
@@ -21,19 +20,18 @@ def writeNumberToFile(fileName, number):
 		f.close()
 	
 threeBiggestNumber = []
-def getMaxNumber(number):
-	maxValue = number[0]
-	for i in range(1, len(number)):
-		if number[i] > maxValue:
-			maxValue = number[i]
-	
+def getMaxNumber(numbers):
+	maxValue = numbers[0]
+	for i in range(1, len(numbers)):
+		if numbers[i] > maxValue:
+			maxValue = numbers[i]
 	threeBiggestNumber.append(maxValue)
-	number.remove(maxValue)
+	numbers.remove(maxValue)
 	
 if __name__ == '__main__':
-	number = readNumberFromFile(sys.argv[1])
-	getMaxNumber(number)
-	getMaxNumber(number)
-	getMaxNumber(number)
+	numbers = readNumberFromFile(sys.argv[1])
+	getMaxNumber(numbers)
+	getMaxNumber(numbers)
+	getMaxNumber(numbers)
 	writeNumberToFile("outputNumber.dat", threeBiggestNumber)
 	
