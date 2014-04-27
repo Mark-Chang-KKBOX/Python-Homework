@@ -7,19 +7,19 @@ def readNumberFromFile(fileName):
 		number[i] = int(number[i])
 	return number
 
-def writeThreeBiggestNumberToFile(fileName, sorted):
+def writeThreeBiggestNumberToFile(fileName, sortedNumber):
 	try:
 		os.remove(fileName)
 	except OSError:
 		pass
 
 	count = 0
-	for i in range(max(sorted), -1, -1):
-		if sorted[i] > 0 and count < 3:
+	for i in range(max(sortedNumber), -1, -1):
+		if sortedNumber[i] > 0 and count < 3:
 			count = count + 1
-			print(sorted[i])
+			print(sortedNumber[i])
 			f = open(fileName, "a")
-			f.write(str(sorted[i])+'\n')
+			f.write(str(sortedNumber[i])+'\n')
 			f.close()
 	
 def xSort(unsorted):
@@ -30,5 +30,5 @@ def xSort(unsorted):
 
 if __name__ == '__main__':
 	number = readNumberFromFile(sys.argv[1])
-	sorted = xSort(number)
-	writeThreeBiggestNumberToFile("outputNumber.txt", sorted)
+	sortedNumber = xSort(number)
+	writeThreeBiggestNumberToFile("outputNumber.txt", sortedNumber)
