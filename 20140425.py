@@ -20,13 +20,6 @@ def writeNumberToFile(fileName, number):
 		f.write(str(number[i])+'\n')
 		f.close()
 	
-def xSort(unsorted):
-	sorted = [0] * (max(unsorted) + 1)
-	for i in range(0, len(unsorted)):
-		sorted[unsorted[i]] = unsorted[i]
-	return sorted
-
-
 threeBiggestNumber = []
 def getMaxNumber(number):
 	maxValue = number[0]
