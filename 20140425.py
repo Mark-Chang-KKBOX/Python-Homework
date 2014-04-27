@@ -1,12 +1,14 @@
-import os, sys
+import os, sys, re
 
 def readNumberFromFile(fileName):
 	with open(fileName) as file:
-		number = file.read().splitlines()
+		lines = file.read().splitlines()
 	
-	for i in range(len(number)):
-		number[i] = int(number[i])
-	return number
+	numbers = []
+	for i in range(len(lines)):
+		if re.search("^[0-9]+$", lines[i]):
+			numbers.append(int(lines[i]))
+	return numbers
 
 def writeNumberToFile(fileName, number):
 	try:
