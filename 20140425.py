@@ -3,6 +3,7 @@ import os, sys
 def readNumberFromFile(fileName):
 	with open(fileName) as file:
 		number = file.read().splitlines()
+	
 	for i in range(len(number)):
 		number[i] = int(number[i])
 	return number
@@ -21,12 +22,14 @@ def writeNumberToFile(fileName, number):
 	
 threeBiggestNumber = []
 def getMaxNumber(numbers):
-	maxValue = numbers[0]
+	maxValue = 0 if len(numbers) == 0 else numbers[0]
+	
 	for i in range(1, len(numbers)):
 		if numbers[i] > maxValue:
 			maxValue = numbers[i]
 	threeBiggestNumber.append(maxValue)
-	numbers.remove(maxValue)
+	
+	numbers.remove(maxValue) if len(numbers) > 0 else numbers
 	
 if __name__ == '__main__':
 	numbers = readNumberFromFile(sys.argv[1])
