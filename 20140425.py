@@ -31,4 +31,4 @@ def xSort(unsorted):
 if __name__ == '__main__':
 	number = readNumberFromFile(sys.argv[1])
 	sortedNumber = xSort(number)
-	writeThreeBiggestNumberToFile("outputNumber.txt", sortedNumber)
+	writeThreeBiggestNumberToFile("outputNumber.dat", sortedNumber)
