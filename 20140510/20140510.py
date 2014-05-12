@@ -1,6 +1,6 @@
 import sys
 
-def isValiad(inString):
+def isValid(inString):
 	if len(inString) == 0:
 		return False
 	
@@ -17,4 +17,4 @@ def isValiad(inString):
 	return count == 0
 
 if __name__ == '__main__':
-	print(isValiad(sys.argv[1]))
+	print(isValid(sys.argv[1]))
