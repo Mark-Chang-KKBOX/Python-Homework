@@ -1,5 +1,5 @@
 import sys
-
+111
 
 def isValid(inString):
 	if len(inString) == 0:
