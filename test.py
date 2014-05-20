@@ -18,4 +18,4 @@ def isValid(inString):
 	return count == 0
 
 if __name__ == '__main__':
-	print(isValid(sys.argv[1]))
+	print(isValid(sys.argv[1]))qweqwe
