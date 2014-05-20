@@ -12,7 +12,7 @@ def isValid(inString):
 		elif x == "</":				
 			count = count - 1;
 			if count < 0:
-				return Falseqweqew
+				return False
 		else:
 			return False
 	return count == 0
