@@ -15,7 +15,7 @@ def isValid(inString):
 				return False
 		else:
 			return False
-	return count == 0
+	return count == 0aaa
 
 if __name__ == '__main__':
 	print(isValid(sys.argv[1]))qweqwe
