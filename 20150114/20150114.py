@@ -1,7 +1,7 @@
 ﻿# -*- coding: utf-8 -*-
 
 def translate_string(string):
-	ts = string
+	ts = str(string)
 
 	ts = ts.replace("*", "乘")
 	ts = ts.replace("=", "等於")
@@ -20,6 +20,15 @@ def translate_string(string):
 	return ts
 
 def translate_number(number):
+	'''
+	Special case
+
+	0  = 零
+	10 = 十
+	18 = 十8 = 十八
+	'''
+	if number == 0:
+		return translate_string(number)
 
 	if number == 10:
 		return "十"
@@ -27,21 +36,41 @@ def translate_number(number):
 	if number > 10 and number < 20:
 		return translate_string("十" + str(number % 10))
 
-	unit = ["", "十"]
+	'''
+	100  = 1百*
+	2000 = 2千*
+	105  = 1百*5
+	2005 = 2千*5
+	'''
+	unit = ["", "十", "百", "千", "萬"]
 
 	s = str(number)
-	a = ""
+	ts = ""
 
 	while len(s) > 0:
-		a += s[0] + unit[len(s) - 1]
+		if s[0] == "0" and len(s) >= 1:
+			if not ts.endswith("*"):
+				ts += "*"
+		else:
+			ts += s[0] + unit[len(s) - 1]
+		
 		s = s[1:]
 	
-	ts = a
+	''' 
+	1百* = 一百
+	2千* = 二千
+	'''
+	while ts.endswith("*"):
+		ts = ts[:len(ts) - 1]
 
-	if ts.endswith("0"):
-		ts = ts[0:len(ts) - 1]
-		
-	return ts
+	'''
+	1百*5 = 1百零5
+	2千*5 = 2千零5
+	'''
+	ts = ts.replace("*", "零")
+
+	return translate_string(ts)
+
 
 for x in range(1, 10):
 	s = ""
@@ -52,3 +81,34 @@ for x in range(1, 10):
 		print(translate_string(s))
 	print
 
+
+# test case of translate_number()
+
+# print(translate_number(0))
+# print(translate_number(5))
+# print(translate_number(10))
+# print(translate_number(15))
+# print(translate_number(50))
+# print(translate_number(65))
+# print(translate_number(100))
+# print(translate_number(105))
+# print(translate_number(150))
+# print(translate_number(157))
+# print(translate_number(2000))
+# print(translate_number(2005))
+# print(translate_number(2050))
+# print(translate_number(2600))
+# print(translate_number(2057))
+# print(translate_number(2160))
+# print(translate_number(3157))
+# print(translate_number(10000))
+# print(translate_number(10200))
+# print(translate_number(10030))
+# print(translate_number(10004))
+# print(translate_number(10204))
+# print(translate_number(10240))
+# print(translate_number(10041))
+# print(translate_number(12057))
+# print(translate_number(12000))
+# print(translate_number(12005))
+# print(translate_number(12050))
